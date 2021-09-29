@@ -1,0 +1,18 @@
+/* import statements */
+import java.awt.Graphics;
+import java.awt.Color;
+
+/** [Draw.java]
+  * This class acts as the interface for drawing shapes
+  * @author Peter Gu
+  * @version 1.0, 12 May 2021
+  */
+
+public interface Draw{
+  
+  /**
+   * drawShape
+   * This method will draw the shape
+   */
+  public void drawShape(Graphics g);
+}
