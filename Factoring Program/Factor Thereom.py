@@ -1,23 +1,21 @@
-import sys
-import math
+from math import sqrt
+from fractions import Fraction
+# Factoring complex integer polynomials
+# As long as the first coefficient and constant are integers, the program will work
+# Finds factors in O(sqrt(a)*sqrt(c)*n)
+# Where a is the first coefficient, c is the constant, and n is the degree of the function
+# Note: This program will only find linear factors in the form ax + b
+# https://en.wikipedia.org/wiki/Factor_theorem
 
 
+# Simple iterative factoring
 def factor(num):
-    num = abs(num)
-    factors = [1, num]
-    if num == 1:
-        return factors
-    elif num == 2:
-        return factors
-    elif num == 3:
-        return factors
-    for x in range(1, int(math.sqrt(num))+1):
-        if x == 1:
-            continue
-        elif num % x == 0:
-            factors.append(x)
+    factors = []
+    for x in range(1, int(sqrt(num))+1):
+        if num % x == 0:
+            factors.append(int(x))
             if num/x != x:
-                factors.append(num/x)
+                factors.append(int(num/x))
     return factors
 
 
@@ -27,38 +25,44 @@ class Number:
         self.number = number
 
 
-print("Degree")
+def main():
+    f = []
+    poly = []
+    ans = []
 
-f = []
-p = []
-ans = []
+    print("Input the degree of the function")
+    n = int(input().strip())
 
-n = int(sys.stdin.readline())
+    print("Coefficient from least to greatest degree; constant first\nIf a value of x^y does not exist, input zero")
 
-print("Coefficient from least to greatest degree; constant first")
+    for i in range(n+1):
+        poly.append(Number(i, float(input().strip())))
 
-for i in range(n+1):
-    p.append(Number(i, float(sys.stdin.readline())))
+    # First coefficient and constant
+    q = factor(abs(poly[-1].number))
+    p = factor(abs(poly[0].number))
 
-coi = factor(p[-1].number)
-cos = factor(p[0].number)
+    # Append all combinations
+    for j in p:
+        for k in q:
+            f.append(Fraction(j, k))
+            f.append(Fraction(-j, k))
+
+    f = set(f)
+
+    # Solve for each possible factor
+    for item in f:
+        total = Fraction(0, 1)
+        for var in poly:
+            temp = Fraction(var.number)  # Important to convert floating point into fraction
+            total += (item**var.degree)*temp
+        if total == 0:
+            ans.append(item)
+
+    print("Factors ->")
+    for o in ans:
+        print(o, end=' ')
 
 
-for j in cos:
-    for k in coi:
-        f.append(j/k)
-        f.append(-j/k)
-
-f = set(f)
-
-for item in f:
-    total = 0
-    for var in p:
-        total += (item**var.degree)*var.number
-    if total == 0:
-        ans.append(item)
-
-for o in ans:
-    print(o, end=' ')
-
+# main()
 
