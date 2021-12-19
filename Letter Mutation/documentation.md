@@ -63,15 +63,14 @@ In the diagram above, imagine if the nodes connected had one letter discrepancie
 ## Optimization
 In order to make our program more efficient, we need to identify some of the biggest issues in our current idea.
 
-1. We do not want to be iterating through the entire dictionary for each separate word.
-
-2. There should be a better way to check whether or not a word has been visited. 
+> 1. We do not want to be iterating through the entire dictionary for each separate word.
+> 
+>2. There should be a better way to check whether or not a word has been visited. 
 
 To solve the first problem, we can use an alphabetically inspired exhaustive search + a HashSet, reducing our complexity to `O(26n^2m)`. The idea is that for each word, instead of comparing it to the rest of the dictionary, we can create all possible versions of that word and check for its existence. There are 26 letters in the English alphabet and each word is some `m` length, therefore in the worst-case scenario, if we were to visit all words, it would only take us `O(26n^2m)`.
 
 The second problem is much easier to deal with. Instead of using an arraylist to store all the words that have been visited, we can convert our previous HashSet into a HashMap. This allows us to relate a value to each word, and that value can represent visitation or lack thereof. 
 
-*Java HashMap*
 ```Java
 HashMap<String, String> dictionary
 ```
