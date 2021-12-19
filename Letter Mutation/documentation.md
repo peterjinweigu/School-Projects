@@ -61,7 +61,7 @@ In the diagram above, imagine if the nodes connected had one letter discrepancie
 **Overall, this gives us a time complexity of `O(n^3m)`**
 
 ## Optimization
-In order to make our program more efficient, we need to identify some of the biggest issues in our current idea.
+In order to make our program more efficient, we need to identify some of the biggest issues in our current algorithm.
 
 > 1. We do not want to be iterating through the entire dictionary for each separate word.
 > 
