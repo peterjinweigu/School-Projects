@@ -34,15 +34,15 @@ Let us denote `a` as our starting word and `b` as our ending one. With this in m
 ```Java 
 Queue<String> queue
 ```  
-We will use a queue to store the current words that we have traveled to.
+We will use a Queue to store the current words that we have traveled to.
 ```Java 
  ArrayList<String> dictionary
 ``` 
- We will use an arraylist to store the list of the words.
+ We will use an ArrayList to store the list of the words.
 ```Java 
 ArrayList<String> visited
 ``` 
-We will use another arraylist to store the visited words.
+We will use another ArrayList to store the visited words.
 
 ### Algorithm 
 When we traverse from `a` to `b`, we want our search to resemble a breadth-first-search.
@@ -54,11 +54,11 @@ In the diagram above, imagine if the nodes connected had one letter discrepancie
 ### Estimated Time Complexity
 - To check for the neighbours of a single word, we must iterate through the arraylist and compare strings. This is `O(nm)` where `n` is the length of the dictionary and `m` is the length of the string.
 
-- For each word, we will need to check whether or not it has been previously traversed. This adds an extra 
+- For each word, we will need to check whether or not it has been previously traversed. This adds an extra `O(n)` search per word. 
 
-- At worst case, our breadth-first-search will run through the entire dictionary. This means we will need to check the neighbours of `n` words where n is the length of the dictionary.
+- At worst case, our breadth-first-search will run through the entire dictionary. This means we will need to check the neighbours of `n` words.
 
-**Overall, this gives us a time complexity of** `O(n^3m)`
+**Overall, this gives us a time complexity of `O(n^3m)`**
 
 ## Optimization
 In order to make our program more efficient, we need to identify some of the biggest issues in our current idea.
@@ -67,6 +67,16 @@ In order to make our program more efficient, we need to identify some of the big
 
 2. There should be a better way to check whether or not a word has been visited. 
 
+To solve the first problem, we can use an alphabetically inspired exhaustive search + a HashSet, reducing our complexity to `O(26n^2m)`. The idea is that for each word, instead of comparing it to the rest of the dictionary, we can create all possible versions of that word and check for its existence. There are 26 letters in the English alphabet and each word is some `m` length, therefore in the worst-case scenario, if we were to visit all words, it would only take us `O(26n^2m)`.
+
+The second problem is much easier to deal with. Instead of using an arraylist to store all the words that have been visited, we can convert our previous HashSet into a HashMap. This allows us to relate a value to each word, and that value can represent visitation or lack thereof. 
+
+*Java HashMap*
+```Java
+HashMap<String, String> dictionary
+```
+
+**Ultimately, our time complexity becomes `O(26nm)` or `O(nm)` per a two-word query**
 
 
 
