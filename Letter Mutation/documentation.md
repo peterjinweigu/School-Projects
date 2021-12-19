@@ -30,11 +30,21 @@ Let us denote `a` as our starting word and `b` as our ending one. With this in m
 > Starting at word `a`, we can try out all the words that have one letter differences with `a`. Afterward, we can do the same for the neighbouring words until we have reached `b`.  It is good to note that we should never be visiting the same word twice—the reason for this will be explained later.
 
 #### Data structures involved
-- ```Queue<String> 	queue``` We will use a queue to store the current words that we have traveled to.
+```Java 
+Queue<String> queue
+```   
+We will use a queue to store the current words that we have traveled to.
+ ```Java 
+ ArrayList<String> dictionary
+ ``` 
+ We will use an arraylist to store the list of the words.
+ 
 
-- ```ArrayList<String> dictionary``` We will use an arraylist to store the list of the words.
+```Java 
+ArrayList<String> visited
+``` 
+We will use another arraylist to store the visited words.
 
-- ```ArrayList<String> visited``` We will use another arraylist to store the visited words.
 
 #### Algorithm 
 When we traverse from `a` to `b`, we want our search to resemble a breadth-first-search.
