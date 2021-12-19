@@ -1,7 +1,7 @@
 # Letter Mutation Project
 
  
-The objective of this project is to find a path between two words in a dictionary where a path between two words can only be formed if they have a one-letter discrepancy
+The objective of this project is to find a path between two words in a dictionary where a path between two words can only be formed if they have a one-letter discrepancy.
 
 > Bat -> Cat -> Sat -> Set
 
