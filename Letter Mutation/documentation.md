@@ -4,7 +4,7 @@
  
 The objective of this project is to find a path between two words in a dictionary where a path between two words can only be formed if they have a one-letter discrepancy.
 
-> Bat -> Cat -> Sat -> Set
+> BAT -> CAT -> SAT -> SET
 
 ## Table of Contents
 
@@ -67,28 +67,35 @@ In order to make our program more efficient, we need to identify some of the big
 
 > 1. We do not want to be iterating through the entire dictionary for each separate word.
 > 
->2. There should be a better way to check whether or not a word has been visited. 
+>2. There should be a better way to check whether or not a word has been visited.
+>
+>3. We have not yet addressed how to recover the path.
 
 To solve the first problem, we can use an alphabetically inspired exhaustive search + a HashSet, reducing our complexity to `O(26n^2m)`. The idea is that for each word, instead of comparing it to the rest of the dictionary, we can create all possible versions of that word and check for its existence. There are 26 letters in the English alphabet and each word is some `m` length, therefore in the worst-case scenario, if we were to visit all words, it would only take us `O(26n^2m)`. 
 
-Unfortunately, because we are constructing a new string object every mutation, there is an extra `O(m)` operation. The time complexity now becomes `O(26n^2m^2)`.
+Unfortunately, because we are constructing a new string object for every mutation, there is an extra `O(m)` operation. The time complexity now becomes `O(26n^2m^2)`.
 
 The second problem is much easier to deal with. Instead of using an arraylist to store all the words that have been visited, we can convert our previous HashSet into a HashMap. This allows us to relate a value to each word, and that value can represent visitation or lack thereof. 
 
 ```Java
 HashMap<String, String> dictionary
 ```
+The third problem is conveniently solved by our HashMap optimization. Instead of storing a boolean as a value, we can store the word that the key had been traversed from. This idea does not only help us backtrack for the path but also provides an indicator for whether or not the word has been visited.
+
+Example-
+
+> <SELL, WELL> where SELL is a word and WELL is the previous word 
 
 *Note: The Java HashMap can access by key in `O(1)`*
 
 **Ultimately, our time complexity becomes `O(26nm^2)` or `O(nm^2)` per a two-word query**
 
 ## Pseudocode
-Assuming that we already have a HashMap that contains the dictionary:
+Assuming that we already have a HashMap that contains the dictionary: 
 
 1. Before executing our breadth-first-search algorithm, we need to add our starting word to the queue and mark it as visited.
 
-2. To maintain our BFS algorithm, we will always perform our exhaustive search on the first word within our queue. The search will involve replacing each character in a word with all the letters of the English Alphabet. Examples of this are shown below -
+2. To maintain our BFS algorithm, we will always perform our exhaustive search on the first word within our queue. The search will involve replacing each character in a word with all the letters of the English Alphabet. Examples of this are shown below-
 	> STAR -> ATAR -> BTAR -> CTAR
 	
 	> CAR -> CBR -> CCR -> CDR
@@ -96,6 +103,13 @@ Assuming that we already have a HashMap that contains the dictionary:
 3. For every mutation that exists in our dictionary, we will check whether or not if that word has been visited. If it has not, it will be added to the queue and presumably be searched at a later time. 
 
 4. If we are ever to run into the final word, we can end our BFS. As mentioned previously, BFS will traverse level by level, thus making any current node also the shortest path from the start. 
+
+5. Using our HashMap, we can backtrack from the final word and construct our path. This can be done iteratively with a Stack. 
+
+## Testing
+
+I used an [online dictionary](#http://www.mieliestronk.com/corncob_lowercase.txt) to test the program.
+
 
 
 
