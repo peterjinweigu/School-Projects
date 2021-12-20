@@ -4,7 +4,7 @@
  
 The objective of this project is to find a path between two words in a dictionary where a path between two words can only be formed if they have a one-letter discrepancy.
 
-> BAT -> CAT -> SAT -> SET
+> BAT -> SAT -> SET
 
 ## Table of Contents
 
