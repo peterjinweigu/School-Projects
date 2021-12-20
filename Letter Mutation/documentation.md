@@ -84,7 +84,7 @@ HashMap<String, String> dictionary
 **Ultimately, our time complexity becomes `O(26nm^2)` or `O(nm^2)` per a two-word query**
 
 ## Pseudocode
-Assuming that we already have a HashMap that contains the dictionary - 
+Assuming that we already have a HashMap that contains the dictionary:
 
 1. Before executing our breadth-first-search algorithm, we need to add our starting word to the queue and mark it as visited.
 
