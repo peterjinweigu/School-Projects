@@ -60,7 +60,7 @@ We will use another ArrayList to store the visited words.
 
 - At worst case, our breadth-first-search will run through the entire dictionary. This means we will need to check the neighbours of `n` words.
 
-**Overall, this gives us a time complexity of `O(n^3m)`**
+**Overall, this gives us a time complexity of `O(2n^2m)` or  `O(n^2m)`**
 
 ## Optimization
 In order to make our program more efficient, we need to identify some of the biggest issues in our current algorithm.
@@ -71,9 +71,9 @@ In order to make our program more efficient, we need to identify some of the big
 >
 >3. We have not yet addressed how to recover the path.
 
-To solve the first problem, we can use an alphabetically inspired exhaustive search + a HashSet, reducing our complexity to `O(26n^2m)`. The idea is that for each word, instead of comparing it to the rest of the dictionary, we can create all possible versions of that word and check for its existence. There are 26 letters in the English alphabet and each word is some `m` length, therefore in the worst-case scenario, if we were to visit all words, it would only take us `O(26n^2m)`. 
+To solve the first problem, we can use an alphabetically inspired exhaustive search + a HashSet, reducing our complexity to `O(26nm)`. The idea is that for each word, instead of comparing it to the rest of the dictionary, we can create all possible versions of that word and check for its existence. There are 26 letters in the English alphabet and each word is some `m` length, therefore in the worst-case scenario, if we were to visit all words, it would only take us `O(26nm)`. 
 
-Unfortunately, because we are constructing a new string object for every mutation, there is an extra `O(m)` operation. The time complexity now becomes `O(26n^2m^2)`.
+Unfortunately, because we are constructing a new string object for every mutation, there is an extra `O(m)` operation. The time complexity now becomes `O(26nm^2)`.
 
 The second problem is much easier to deal with. Instead of using an arraylist to store all the words that have been visited, we can convert our previous HashSet into a HashMap. This allows us to relate a value to each word, and that value can represent visitation or lack thereof. 
 
@@ -108,7 +108,7 @@ Assuming that we already have a HashMap that contains the dictionary:
 
 ## Testing
 
-I used this [online dictionary](http://www.mieliestronk.com/corncob_lowercase.txt) to test the program.
+I used an [online dictionary](http://www.mieliestronk.com/corncob_lowercase.txt) to test the program.
 
 
 
