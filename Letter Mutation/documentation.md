@@ -108,7 +108,7 @@ Assuming that we already have a HashMap that contains the dictionary:
 
 ## Testing
 
-I used an [online dictionary](#http://www.mieliestronk.com/corncob_lowercase.txt) to test the program.
+I used an [online dictionary](http://www.mieliestronk.com/corncob_lowercase.txt) to test the program.
 
 
 
