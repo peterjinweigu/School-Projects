@@ -43,7 +43,7 @@ In the diagram above, imagine if the nodes connected had one letter discrepancie
 ```Java 
 Queue<String> queue
 ```  
-We will use a Queue to store the current words that we have traveled to. Because the the Queue data structure is first-in-first-out, it is perfect for breadth-first-search.
+We will use a Queue to store a dynamic list of neighbours that we yet to search Because the the Queue data structure is first-in-first-out, it is perfect for breadth-first-search.
 ```Java 
  ArrayList<String> dictionary
 ``` 
