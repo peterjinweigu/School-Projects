@@ -108,7 +108,7 @@ Assuming that we already have a HashMap that contains the dictionary:
 
 ## Testing
 
-I used an [online dictionary](http://www.mieliestronk.com/corncob_lowercase.txt) to perform some basic testing on the program.
+**I used an [online dictionary](http://www.mieliestronk.com/corncob_lowercase.txt) to perform some basic testing on the program.**
 
 | Start | End | Output |
 | :-: | :-: | :-:|
@@ -117,11 +117,12 @@ I used an [online dictionary](http://www.mieliestronk.com/corncob_lowercase.txt)
 | WALK | DOGS | WALK -> TALK -> TANK -> TANS -> TONS -> DONS -> DOGS : **Length 7**
 |CAT | DOG | CAT -> COT -> DOT -> DOG : **Length 4**
 
-More in depth test cases using [this dictionary](https://github.com/peterjinweigu/School-Projects/blob/main/Letter%20Mutation/DemoDict.txt).
+**More in depth test cases using [this dictionary](https://github.com/peterjinweigu/School-Projects/blob/main/Letter%20Mutation/DemoDict.txt).**
 
 *Example 1*
 
 > ABCD -> DADD
+
 > OUTPUT : ABCD -> AACD -> AADD -> DADD
 
 With the graph below we can see that our program has indeed chosen the shortest path
@@ -130,12 +131,14 @@ With the graph below we can see that our program has indeed chosen the shortest 
 
 *Example 2*
 > A -> Z
+
 > OUTPUT : NO SUCH MUTATION EXISTS
 
 There is no `Z` in this dictionary.
 
 *Example 3*
 > ABCDEFG -> AAAAAAA
+
 > OUTPUT : ABCDEFG -> AACDEFG -> AAADEFG -> AAAAEFG -> AAAABFG -> AAAABAG -> AAAABAA -> AAAAAAA
 
 This is the correct output.
