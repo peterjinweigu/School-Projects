@@ -96,9 +96,9 @@ Assuming that we already have a HashMap that contains the dictionary:
 1. Before executing our breadth-first-search algorithm, we need to add our starting word to the queue and mark it as visited.
 
 2. To maintain our BFS algorithm, we will always perform our exhaustive search on the first word within our queue. The search will involve replacing each character in a word with all the letters of the English Alphabet. Examples of this are shown below-
-	> STAR -> ATAR -> BTAR -> CTAR
+	> STAR -> ATAR -> BTAR -> CTAR | Replacing the first letter of STAR
 	
-	> CAR -> CBR -> CCR -> CDR
+	> CAR -> CBR -> CCR -> CDR | Replacing the second letter of CAR
 
 3. For every mutation that exists in our dictionary, we will check whether or not if that word has been visited. If it has not, it will be added to the queue and presumably be searched at a later time. 
 
@@ -108,7 +108,17 @@ Assuming that we already have a HashMap that contains the dictionary:
 
 ## Testing
 
-I used an [online dictionary](http://www.mieliestronk.com/corncob_lowercase.txt) to test the program.
+I used an [online dictionary](http://www.mieliestronk.com/corncob_lowercase.txt) to perform some basic testing on the program.
+
+| Case | Output |
+| ------ | ------|
+|CORAL -> FLAME | CORAL -> MORAL -> MORAY -> FORAY -> FORTY -> FORTS -> SORTS -> SOOTS -> SLOTS -> SLATS -> SLATE -> SLAKE -> FLAKE -> FLAME : **Length 14**
+|TRIBE -> SOLVE | TRIBE -> TRICE -> PRICE -> PRISE -> POISE -> POSSE -> PASSE -> PARSE -> PURSE -> CURSE -> CURVE -> CARVE -> CALVE -> SALVE -> SOLVE : **Length 15**
+| WALK -> DOGS | WALK -> TALK -> TANK -> TANS -> TONS -> DONS -> DOGS : **Length 7**
+|CAT -> DOG | CAT -> COT -> DOT -> DOG : **Length 4**
+
+More in depth test cases using [this dictionary](https://github.com/peterjinweigu/School-Projects/blob/main/Letter%20Mutation/DemoDict.txt).
+
 
 
 
