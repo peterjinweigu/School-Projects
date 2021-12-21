@@ -142,3 +142,9 @@ There is no `Z` in this dictionary.
 > OUTPUT : ABCDEFG -> AACDEFG -> AAADEFG -> AAAAEFG -> AAAABFG -> AAAABAG -> AAAABAA -> AAAAAAA
 
 This is the correct output.
+
+# Final Remarks
+
+1. BFS vs DFS: Another approach towards this problem is depth-first-search. DFS essentially will traverse a graph by its branches, exploring as deep as possible before backtracking. However, unlike BFS, at some node during DFS, you will be unable to tell whether or not you have the shortest distance. This makes it extremely unfavourable to use the DFS algorithm for this problem. 
+
+2. Graph Construction Approach: Interestingly, there exists a method to solve this problem that disposes of the constant factor `26`. If you were to build a graph that consists of nodes that represent a parent permutation (ie. `L_KE` encompasses words like `LAKE` or `LIKE`) with edges to those words, there would be no need to iterate through the alphabet. However, with this, comes to an additional `O(nm)` memory requirement as well as graph construction. I think that my method is more preferable as it shares the same big O time complexity, and does not use as much memory. 
