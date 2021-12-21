@@ -122,9 +122,20 @@ More in depth test cases using [this dictionary](https://github.com/peterjinweig
 *Example 1*
 
 > ABCD -> DADD
+> OUTPUT : ABCD -> AACD -> AADD -> DADD
 
 With the graph below we can see that our program has indeed chosen the shortest path
 
-![A example of breadth-first-search](https://i.ibb.co/nr4vhvZ/Graph.png)
+![Graph for example 1](https://i.ibb.co/nr4vhvZ/Graph.png)
 
+*Example 2*
+> A -> Z
+> OUTPUT : NO SUCH MUTATION EXISTS
 
+There is no `Z` in this dictionary.
+
+*Example 3*
+> ABCDEFG -> AAAAAAA
+> OUTPUT : ABCDEFG -> AACDEFG -> AAADEFG -> AAAAEFG -> AAAABFG -> AAAABAG -> AAAABAA -> AAAAAAA
+
+This is the correct output.
