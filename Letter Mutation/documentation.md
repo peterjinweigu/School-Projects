@@ -110,12 +110,12 @@ Assuming that we already have a HashMap that contains the dictionary:
 
 I used an [online dictionary](http://www.mieliestronk.com/corncob_lowercase.txt) to perform some basic testing on the program.
 
-| Case | Output |
-| ------ | ------|
-|CORAL -> FLAME | CORAL -> MORAL -> MORAY -> FORAY -> FORTY -> FORTS -> SORTS -> SOOTS -> SLOTS -> SLATS -> SLATE -> SLAKE -> FLAKE -> FLAME : **Length 14**
-|TRIBE -> SOLVE | TRIBE -> TRICE -> PRICE -> PRISE -> POISE -> POSSE -> PASSE -> PARSE -> PURSE -> CURSE -> CURVE -> CARVE -> CALVE -> SALVE -> SOLVE : **Length 15**
-| WALK -> DOGS | WALK -> TALK -> TANK -> TANS -> TONS -> DONS -> DOGS : **Length 7**
-|CAT -> DOG | CAT -> COT -> DOT -> DOG : **Length 4**
+| Start | End | Output |
+| :-: | :-: | :-:|
+|CORAL | FLAME | CORAL -> MORAL -> MORAY -> FORAY -> FORTY -> FORTS -> SORTS -> SOOTS -> SLOTS -> SLATS -> SLATE -> SLAKE -> FLAKE -> FLAME : **Length 14**
+|TRIBE| SOLVE | TRIBE -> TRICE -> PRICE -> PRISE -> POISE -> POSSE -> PASSE -> PARSE -> PURSE -> CURSE -> CURVE -> CARVE -> CALVE -> SALVE -> SOLVE : **Length 15**
+| WALK | DOGS | WALK -> TALK -> TANK -> TANS -> TONS -> DONS -> DOGS : **Length 7**
+|CAT | DOG | CAT -> COT -> DOT -> DOG : **Length 4**
 
 More in depth test cases using [this dictionary](https://github.com/peterjinweigu/School-Projects/blob/main/Letter%20Mutation/DemoDict.txt).
 
