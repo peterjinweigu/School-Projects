@@ -125,6 +125,6 @@ More in depth test cases using [this dictionary](https://github.com/peterjinweig
 
 With the graph below we can see that our program has indeed chosen the shortest path
 
-![A example of breadth-first-search](https://ibb.co/LSBW4Wb)
+![A example of breadth-first-search](https://i.ibb.co/nr4vhvZ/Graph.png)
 
 
