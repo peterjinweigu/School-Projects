@@ -119,7 +119,12 @@ I used an [online dictionary](http://www.mieliestronk.com/corncob_lowercase.txt)
 
 More in depth test cases using [this dictionary](https://github.com/peterjinweigu/School-Projects/blob/main/Letter%20Mutation/DemoDict.txt).
 
+*Example 1*
 
+> ABCD -> DADD
 
+With the graph below we can see that our program has indeed chosen the shortest path
+
+![A example of breadth-first-search](https://ibb.co/LSBW4Wb)
 
 
